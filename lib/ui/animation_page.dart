@@ -25,7 +25,7 @@ class _AnimationPageState extends State<AnimationPage> {
           AnimatedContainer(
             curve: Curves.bounceInOut,
             width: 100,
-            height: 100,
+            height: _height,
             color: Colors.brown[300],
             duration: Duration(seconds: 1),
           )

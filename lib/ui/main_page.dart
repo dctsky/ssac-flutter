@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_lab_01/ui/animation_page.dart';
 import 'package:flutter_lab_01/ui/first_page.dart';
+import 'package:flutter_lab_01/ui/http_page.dart';
 import 'package:flutter_lab_01/ui/second_page.dart';
 import 'package:flutter_lab_01/ui/third_page.dart';
 
@@ -18,6 +19,7 @@ class _MainPageState extends State<MainPage> {
     SecondPage(), // _pages[1]
     ThirdPage(), // _pages[2]
     AnimationPage(),
+    HttpPage(),
   ];
 
   @override
@@ -40,8 +42,12 @@ class _MainPageState extends State<MainPage> {
             label: '친구 목록',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: '친구 목록',
+            icon: Icon(Icons.animation),
+            label: '애니메이션',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.network_cell),
+            label: 'http',
           ),
         ],
         currentIndex: _index,
