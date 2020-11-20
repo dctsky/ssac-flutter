@@ -1,13 +1,47 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutter_lab_01/ui/async_page.dart';
+import 'package:flutter_lab_01/ui/stream_page.dart';
 
 class FirstPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            DrawerHeader(
+              child: Text('Drawer Header'),
+              decoration: BoxDecoration(
+                color: Colors.amber,
+              ),
+            ),
+            ListTile(
+              title: Text('비동기 프로그래밍 - Future'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => AsyncPage()),
+                );
+              },
+            ),
+            ListTile(
+              title: Text('비동기 프로그래밍 - Stream'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => StreamPage()),
+                );
+              },
+            ),
+          ],
+        ),
+      ),
         appBar: AppBar(
           centerTitle: true,
           backgroundColor: Colors.white,
+          iconTheme: IconThemeData(color: Colors.grey),
           title: Text(
             'Kakao T',
             style: TextStyle(color: Colors.black),
