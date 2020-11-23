@@ -15,12 +15,12 @@ class AsyncPage extends StatelessWidget {
           style: TextStyle(color: Colors.black),
         ),
       ),
-      body: FutureBuilder<List<Album>>(
+      body: FutureBuilder(
         future: fetchAlbumlist(),
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             return Center(child: Text(snapshot.data.toString()));
-          } else if (snapshot.hasData) {
+          } else if (snapshot.hasError) {
             return Center(child: Text('에러 발생'));
           }
           return Center(child: CircularProgressIndicator());

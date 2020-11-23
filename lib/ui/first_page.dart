@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter_lab_01/ui/async_page.dart';
+import 'package:flutter_lab_01/ui/provider/counter_provider_page.dart';
 import 'package:flutter_lab_01/ui/quiz_page.dart';
 import 'package:flutter_lab_01/ui/stream_page.dart';
 
@@ -42,6 +43,15 @@ class FirstPage extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => QuizPage()),
+                );
+              },
+            ),
+            ListTile(
+              title: Text('Provider Counter'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => CounterProviderPage()),
                 );
               },
             ),

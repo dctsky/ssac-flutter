@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_lab_01/counter.dart';
-import 'package:flutter_lab_01/list_exam.dart';
-import 'package:flutter_lab_01/navigation/first_page.dart';
 import 'package:flutter_lab_01/ui/main_page.dart';
+import 'package:flutter_lab_01/ui/provider/counter.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(
+    ChangeNotifierProvider<Counter>(
+      create: (context) => Counter(),
+      child: MyApp(),
+    ),
+  );
 }
 
 //메인 App
@@ -37,9 +41,11 @@ class HomePage extends StatelessWidget {
     // return Text('Hello');
 
     //방법2 변수로 선언해서 사용(다른데서 더 쓸 일 없을 때)
-    Widget titleSection = Padding( //바깥쪽에 여백 주기
+    Widget titleSection = Padding(
+      //바깥쪽에 여백 주기
       padding: const EdgeInsets.all(16.0), //여백 사이즈 조절
-      child: Row( //수평으로 보여주기
+      child: Row(
+        //수평으로 보여주기
         crossAxisAlignment: CrossAxisAlignment.start, //위로 위치 옮기기
         children: [
           Expanded(
@@ -71,12 +77,14 @@ class HomePage extends StatelessWidget {
       ),
     );
 
-    return Scaffold( //Material 디자인 기본 세팅
+    return Scaffold(
+      //Material 디자인 기본 세팅
       appBar: AppBar(
         title: Text('Flutter layout demo'),
       ),
       //body: Column(
-      body: ListView( //스크롤이 가능
+      body: ListView(
+        //스크롤이 가능
         // child: Text('Hello'),
         children: [
           Image.asset(
@@ -91,7 +99,6 @@ class HomePage extends StatelessWidget {
         ],
       ),
     );
-
   }
 }
 
@@ -100,9 +107,11 @@ class TitleSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Padding( //바깥쪽에 여백 주기
+      child: Padding(
+        //바깥쪽에 여백 주기
         padding: const EdgeInsets.all(16.0), //여백 사이즈 조절
-        child: Row( //수평으로 보여주기
+        child: Row(
+          //수평으로 보여주기
           crossAxisAlignment: CrossAxisAlignment.start, //위로 위치 옮기기
           children: [
             Expanded(
@@ -150,15 +159,12 @@ class ButtonSection extends StatelessWidget {
           Text(
             label,
             style: TextStyle(
-                color: Colors.blue,
-                fontSize: 14,
-                fontWeight: FontWeight.w500
-
-            ),
+                color: Colors.blue, fontSize: 14, fontWeight: FontWeight.w500),
           ),
         ],
       );
     }
+
     return Container(
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly, //공간을 균등하게 차지
@@ -172,22 +178,22 @@ class ButtonSection extends StatelessWidget {
   }
 }
 
-
 class TextSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(20.0),
       child: Container(
-        child: Text('Lake Oeschinen lies at the foot of the Blüemlisalp in the Bernese '
-            'Alps. Situated 1,578 meters above sea level, it is one of the '
-            'larger Alpine Lakes. A gondola ride from Kandersteg, followed by a '
-            'half-hour walk through pastures and pine forest, leads you to the '
-            'lake, which warms to 20 degrees Celsius in the summer. Activities '
-            'enjoyed here include rowing, and riding the summer toboggan run.',
-            softWrap: true, //열 너비에 맞춰 줄바꿈
+        child: Text(
+          'Lake Oeschinen lies at the foot of the Blüemlisalp in the Bernese '
+          'Alps. Situated 1,578 meters above sea level, it is one of the '
+          'larger Alpine Lakes. A gondola ride from Kandersteg, followed by a '
+          'half-hour walk through pastures and pine forest, leads you to the '
+          'lake, which warms to 20 degrees Celsius in the summer. Activities '
+          'enjoyed here include rowing, and riding the summer toboggan run.',
+          softWrap: true, //열 너비에 맞춰 줄바꿈
         ),
-        ),
+      ),
     );
   }
 }
